@@ -340,6 +340,8 @@ const initButtons = function () {
   q7.textContent = "What is the broadcast address?";
   q8.textContent = "What is the total number of IPs on this subnet?";
   q9.textContent = "What is the number of usable IP address on this subnet?";
+  q10.textContent = `How many subnets are created with this IP class and subnet mask
+  combination?`;
   q1.classList.remove("answer");
   q2.classList.remove("answer");
   q3.classList.remove("answer");
