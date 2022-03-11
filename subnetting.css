@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  /* padding: 30px; */
+}
+section {
+  margin-bottom: 15px;
+}
+h2 {
+  font-size: 35px;
+}
+button {
+  background-color: white;
+}
+
+.title-container {
+  /* background-color: rgb(184, 221, 253); */
+  /* margin: 40px; */
+  /* padding: 40px; */
+  padding-top: 40px;
+  margin-bottom: 30px;
+  /* text-align: center; */
+  display: flex;
+  /* gap: 50px; */
+  justify-content: center;
+}
+
+.title {
+  /* color: rgb(83, 83, 83); */
+  font-size: 45px;
+  order: 1;
+  /* align-self: baseline; */
+  /* flex: 1 0 400px; */
+  /* flex: 1; */
+}
+
+.ip-btn-container {
+  /* background-color: rgb(202, 202, 202); */
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+.new-ip-btn {
+  /* flex-basis: 130px; */
+  width: 130px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  /* border: none; */
+}
+.new-ip-btn:hover {
+  background-color: #878787;
+
+  color: white;
+}
+
+.ip-container {
+  /* background-color: rgb(231, 231, 231); */
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+.question-title {
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+.questions {
+  /* background-color: rgb(243, 243, 243); */
+  padding-left: 40px;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.answer {
+  color: rgb(255, 255, 255);
+  background-color: #878787;
+}
+
+li {
+  padding-bottom: 20px;
+  /* border-bottom: solid 1px; */
+}
+
+.answers-title {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.question {
+  /* width: 550px; */
+  text-align: left;
+  display: block;
+  font-size: 20px;
+  line-height: 1.5em;
+  margin-bottom: 7px;
+  padding: 10px;
+  /* width: 500px */
+  border-radius: 7px;
+  /* background-color: white; */
+  border: none;
+  cursor: pointer;
+}
+
+.question:hover {
+  /* content: "255.255.255.0"; */
+  background-color: rgb(87, 87, 87);
+  color: white;
+}
+
+/* .question--1:after {
+  content: "255.255.255.0";
+} */
