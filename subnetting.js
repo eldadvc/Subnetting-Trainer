@@ -273,7 +273,8 @@ const getLastUsableIP = function (broadcast) {
 
 const getTotalNumberOfIPs = function (ipArr) {
   const hostBits = 32 - ipArr[0]; // the IP aray holds the prefix in pos [0]
-  return 2 ** hostBits;
+  return new Intl.NumberFormat().format(2 ** hostBits);
+//   return 2 ** hostBits;
   // console.log(numOfIPs);
 };
 
