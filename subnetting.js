@@ -58,7 +58,6 @@ let numberOfSubnets = "";
 let binaryIP = ""; // just a string of 32 bits, no dots
 let binaryMask = ""; // just a string of 32 bits, no dots
 
-// let maskDot = "";
 // function to generate random number
 const rndGenerator = function (max) {
   return Math.trunc(Math.random() * max);
@@ -76,11 +75,9 @@ const ipGenerator = function () {
   // console.log(binMask);
 
   adrClass = ipClass(ip);
-  // console.log(adrClass);
 
   subnetID = findSubnetID(ip, binMask);
-  // console.log(decMask);
-  /// enable question buttons
+
   firstUsableIP = getFirstUsableIP(subnetID);
 
   broadcastIP = findBroadcast(binaryIP, binaryMask);
@@ -90,7 +87,7 @@ const ipGenerator = function () {
   totalIPsOnSubnet = getTotalNumberOfIPs(ip);
 
   totalUsableIPsOnSubnet = getTotalUseableIPs(totalIPsOnSubnet);
-
+  /// enable question buttons
   q1.disabled = false;
   q2.disabled = false;
   q3.disabled = false;
@@ -102,7 +99,6 @@ const ipGenerator = function () {
   q9.disabled = false;
 
   /// display question 10 if mask is bigger that class
-
   if (adrClass === "A" && ip[0] > 8) {
     q10.style.visibility = "visible";
     q10.disabled = false;
@@ -274,7 +270,7 @@ const getLastUsableIP = function (broadcast) {
 const getTotalNumberOfIPs = function (ipArr) {
   const hostBits = 32 - ipArr[0]; // the IP aray holds the prefix in pos [0]
   //return new Intl.NumberFormat().format(2 ** hostBits);
-   return 2 ** hostBits;
+  return 2 ** hostBits;
   // console.log(numOfIPs);
 };
 
@@ -294,41 +290,6 @@ const getNumberOfSubnets = function (cls, msk) {
   }
   return 2 ** (msk - 24);
 };
-
-// const findSubnetID = function (ip) {
-//   // console.log(`${ip[1]}.${ip[2]}.${ip[3]}.${ip[4]}/${ip[0]}`);
-//   // console.log(mask);
-//   const maskValues = [0, 128, 192, 224, 240, 248, 252, 254, 255];
-//   const addrJump = [0, 128, 64, 32, 16, 8, 4, 2, 1];
-//   const mask = ip[0];
-//   // console.log(ip);
-//   // console.log(mask);
-//   if (mask <= 8) {
-//     // console.log("first octet");
-//     console.log(`mask octet: ${maskValues[mask]} jump ${addrJump[mask]}`);
-//     for (let i = 0; i < 256; i += addrJump[mask]) {
-//       if (i > ip[1]) {
-//         console.log(`${i - addrJump[mask]}.0.0.0`);
-//         return;
-//       }
-//     }
-//     // console.log(`Net ID: ${ip[1] - addrJump[mask]}.0.0.0`);
-//     return;
-//   }
-//   if (mask <= 16) {
-//     console.log(`mask octet: ${maskValues[mask - 8]} jump ${addrJump[mask]}`);
-//     for (let i = 0; i < 256; i += addrJump[mask]) {
-//       if (i > ip[2]) {
-//         console.log(`${ip[1]}.${i - addrJump[mask]}.0.0`);
-//         return;
-//       }
-//     }
-//     return;
-//   }
-//   if (mask <= 24) {
-//     return;
-//   }
-// };
 
 // Reset buttons and questions
 const initButtons = function () {
@@ -468,7 +429,11 @@ q7.addEventListener("click", function () {
 
 q8.addEventListener("click", function () {
   if (!q8IsClicked) {
-    q8.textContent = `Total IPs on this subnet: ${totalIPsOnSubnet}`;
+    // new Intl.NumberFormat().format(number)
+    //q8.textContent = `Total IPs on this subnet: ${totalIPsOnSubnet}`;
+    q8.textContent = `Total IPs on this subnet: ${new Intl.NumberFormat().format(
+      totalIPsOnSubnet
+    )}`;
     q8IsClicked = true;
     q8.classList.add("answer");
   } else {
@@ -480,7 +445,10 @@ q8.addEventListener("click", function () {
 
 q9.addEventListener("click", function () {
   if (!q9IsClicked) {
-    q9.textContent = `Useable IPs on this subnet: ${totalUsableIPsOnSubnet}`;
+    //q9.textContent = `Useable IPs on this subnet: ${totalUsableIPsOnSubnet}`;
+    q9.textContent = `Useable IPs on this subnet: ${new Intl.NumberFormat().format(
+      totalUsableIPsOnSubnet
+    )}`;
     q9IsClicked = true;
     q9.classList.add("answer");
   } else {
@@ -492,8 +460,10 @@ q9.addEventListener("click", function () {
 
 q10.addEventListener("click", function () {
   if (!q10IsClicked) {
+    // q10.textContent = `Subnets with this IP class and subnet mask
+    // combination: ${numberOfSubnets}`;
     q10.textContent = `Subnets with this IP class and subnet mask
-    combination: ${numberOfSubnets}`;
+    combination: ${new Intl.NumberFormat().format(numberOfSubnets)}`;
     q10IsClicked = true;
     q10.classList.add("answer");
   } else {
